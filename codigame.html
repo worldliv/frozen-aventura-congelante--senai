@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frozen: O Jogo</title>
+    <link rel="stylesheet" href="codigame.css">
+</head>
+<body>
+
+        <!-- Tela inicial -->
+    <div id="start-screen" class="screen">
+        <h1 class="título-Frozen">Frozen: Aventura Congelante</h1>
+        <button id="start-btn">Começar</button>
+        <button id="rules-btn">Regras</button>
+    </div>
+
+        <!-- Tela de regras -->
+    <div id="rules-screen" class="screen hidden">
+        <h2>Regras do Jogo</h2>
+        <p>1. O jogo é para dois jogadores.</p>
+        <p>2. As jogadas são alternadas.</p>
+        <p>3. Cada jogador rola o dado e avança no tabuleiro.</p>
+        <p>4. A cada casa andada o jogador acumula um ponto.</p>
+        <p>5. Ao cair em uma casa de pergunta, o jogador ganha mais dois pontos se responder corretamente.</p>
+        <p>6. Caso o jogador erre a resposta, ganha somente os pontos das casas andadas.</p>
+        <p>7. O objetivo é ser o primeiro a chegar à última casa e acumular o maior número de pontos.</p>
+        <p>8. Jogo indicado para maiores de 6 anos.</p>
+        <button id="back-to-start-btn">Voltar</button>
+        <button id="play-btn">Jogar</button>
+    </div>
+
+        <!-- Tela de jogo -->
+    <div id="game-screen" class="screen hidden">
+        <h2>Jogo do Tabuleiro</h2>
+        
+        <div id="player-info-container">
+            <h3 id="current-player-name">Jogador 1</h3>
+            <p>Casa atual: <span id="current-position">1</span></p>
+        </div>
+        
+        <div id="dice-container">
+            <button id="roll-dice-btn">
+        <img src="https://png.pngtree.com/png-clipart/20250223/original/pngtree-a-white-dice-with-blue-dots-png-image_20499644.png" alt="Rolar o dado" style="width: 50px; height: 50px;">
+        </button>
+            <p>Número tirado no dado: <span id="dice-value">?</span></p>
+        </div>
+
+        <div id="board"></div>
+
+        <button id="show-score-btn">Pontuação parcial</button>
+        <button id="restart-btn" class="btn">Reiniciar jogo</button>
+    </div>
+
+        <!-- Tela de perguntas do tabuleiro -->
+    <div id="question-box" class="screen hidden">
+        <p id="question-text"></p>
+        <div id="options-container">
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+            <button class="option-btn"></button>
+        </div>
+    </div>
+
+        <!-- Tela da pontuação parcial do jogo -->
+    <div id="score-screen" class="screen hidden">
+        <h2>Pontuação Parcial</h2>
+        <p>Elsa, Anna e Olaf: <span id="score-player1">0</span></p>
+        <p>Kristoff e Sven: <span id="score-player2">0</span></p>
+        <button id="back-to-game-btn">Voltar ao jogo</button>
+    </div>
+
+        <!-- Tela final do jogo (pontuação/resultado final) -->
+    <div id="end-screen" class="screen hidden">
+        <h2 id="winner-name"></h2>
+        <p id="final-score"></p>
+        <button id="restart-end-btn" class="btn">Reiniciar jogo</button>
+    </div>
+
+        <!-- div para o efeito de neve -->
+    <div id="snow-container"></div>
+
+    <script src="codigame.js"></script>
+</body>
+</html>

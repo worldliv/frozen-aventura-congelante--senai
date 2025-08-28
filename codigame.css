@@ -1,0 +1,253 @@
+body {
+    font-family: 'Arial', sans-serif; /* fFonte dos textos. */
+    display: flex; /* Container flexível. */
+    justify-content: center;  /* Centraliza o conteúdo horizontalmente dentro do "body". */
+    align-items: center;  /* Centraliza o conteúdo verticalmente dentro do "body". */
+    height: 100vh;  /* Define a altura do corpo para 100% da altura da janela de visualização (viewport). */
+    margin: 0; /* Remove a margem padrão do corpo da página. */
+    background-color: #05051C; /* Define a cor de fundo de toda a página.*/
+    color: #333; /* Cor padrão do texto. */
+    text-align: center; /* Centraliza o texto dentro do "body". */
+}
+
+/* Classe geral para todas as telas do jogo. */
+.screen {
+    width: 90%;  /* Define a largura da tela para 90% do contêiner pai. */
+    max-width: 600px;  /* Limita a largura máxima da tela a 600px. */
+    padding: 20px; /* Adiciona um preenchimento interno de 20px. */
+    border: 2px solid #b0e0e6; 
+    border-radius: 15px; /* Arredonda os cantos da borda em 15px. */
+    background-color: #fff; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Adiciona uma sombra suave à caixa. */
+}
+
+/* Regra específica para a tela inicial */
+#start-screen {
+     /* Define uma imagem de fundo para a tela inicial. */
+    background-image: url(https://wallpapers.com/images/hd/frozen-2-pictures-f75osyhquszcxab7.jpg);
+    background-size: cover; /* Garante que a imagem de fundo cubra toda a área. */
+    background-position: top;  /* Alinha a imagem de fundo na parte superior. */
+    background-repeat: no-repeat;   /* Impede a repetição da imagem de fundo. */
+    color: #fff;   /* Cor do texto. */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra ao texto para 
+    melhorar a legibilidade sobre a imagem. */
+    display: flex; /* Tela como container flexível. */
+    flex-direction: column;  /* Organiza os itens em uma coluna. */
+    justify-content: center;  /* Centraliza os itens verticalmente. */
+    align-items: center; /* Centraliza os itens horizontalmente. */
+    min-height: 100%;   /* Garante que a tela ocupe pelo menos 100% da altura do contêiner pai. */
+    border: none;  /* Remove a borda padrão para esta tela específica. */
+}
+
+/* Tela do jogo */
+#game-screen {
+    background-color:#a1b6fc;
+}
+
+/* Tela de regras */
+#rules-screen{
+    background-color: #a1b6fc; 
+    text-align: justify;  /* Justifica todo o texto dentro da desta div, alinhando as bordas. */
+}
+
+/* Tela de resultados parciais */
+#score-screen{
+    background-color: #a1b6fc;
+}
+
+/* Tela de resultados finais */
+#end-screen {
+    background-color: #a1b6fc;
+}
+
+/* Esta é a regra fundamental.
+  O "!important" garante que o elemento seja escondido (ocultado), ignorando qualquer
+  outra regra de estilo que possa estar sobrepondo; garante que esta regra tenha prioridade.*/
+
+.hidden {
+    display: none !important; /*Garante que as telas sejam escondidas. */
+}
+
+h1 {
+    color: #4682b4;
+    text-shadow: 1px 1px 2px #add8e6;
+}
+
+button {
+    padding: 10px 20px;  /* Adiciona preenchimento interno. */
+    margin: 10px; /* Adiciona margem externa. */
+    font-size: 16px;  /* Define o tamanho da fonte. */
+    cursor: pointer;  /* Altera o cursor do mouse para indicar que é clicável. */
+    border: none;  /* Remove a borda padrão. */
+    border-radius: 8px; /* Arredonda os cantos. */
+    background-color: #87cefa; 
+    color: white;
+    transition: background-color 0.3s; /* Adiciona uma transição suave para a cor de fundo. */
+}
+
+/* Botão de dado, removendo o visual de botão (imagem do dado) */
+#roll-dice-btn {
+    background-color: transparent; /* Remove o fundo */
+    border: none; /* Remove a borda */
+    padding: 0; /* Remove o espaçamento interno */
+    cursor: pointer; /* faz com que o cursor mude ao passar sobre a imagem */
+    width: 60px;  /* Largura da imagem */
+    height: 60px; /* Altura da imagem */
+}
+
+/* Muda a cor de fundo quando o mouse passa sobre um botão. */
+button:hover {
+    background-color: #4682b4;  /* Define a nova cor de fundo. */
+}
+
+/* Cor de fundo para o botão "Pontuação Parcial" */
+#show-score-btn {
+    background-color: #2E65DB; 
+}
+
+/* Cor de fundo para o botão "Reiniciar jogo" (na tela de jogo) */
+#restart-btn {
+    background-color: #2E65DB; 
+}
+
+/* Cor de fundo para o botão "Reiniciar jogo" (na tela final) */
+#restart-end-btn {
+    background-color: #2E65DB; 
+}
+
+/* Estilo do Tabuleiro */
+#board {
+    display: grid;  /* Usa o sistema de grid para o layout. */
+    grid-template-columns: repeat(4, 1fr);  /* Cria 4 colunas de largura igual. */
+    grid-gap: 5px;  /* Define o espaço entre as células. */
+    width: 100%;   /* Define a largura do tabuleiro. */
+    max-width: 400px; /* Limita a largura máxima. */
+    margin: 20px auto;  /* Centraliza o tabuleiro horizontalmente. */
+    border: 2px solid #000; 
+}
+
+/* Modificando o 'board-cell' para ser um contêiner de posicionamento.
+  Ele terá as regras básicas para as casas (células) do tabuleiro.*/
+
+.board-cell {
+    width: 100%;  /* Define a largura como 100% da coluna. */
+    aspect-ratio: 1 / 1;  /* Mantém a proporção de 1:1 (quadrado). */
+    border: 1px solid #1232A6; 
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo (número) horizontalmente. */
+    align-items: center;  /* Centraliza o conteúdo verticalmente. */
+    font-weight: bold;  /* Deixa o texto em negrito. */
+    box-sizing: border-box;  /* Inclui o preenchimento e a borda no cálculo da largura/altura. */
+    transition: transform 0.3s;  /* Adiciona uma transição suave. */
+    position: relative; /* Posição relativa para posicionar imagens de jogadores dentro dela. */
+    color: #1232A6;
+    background-size: cover;  /* Ajusta o tamanho da imagem de fundo. */
+    background-position: center;  /* Centraliza a imagem de fundo. */
+    background-repeat: no-repeat; 
+}
+
+/* Estilo para células ímpares do tabuleiro */
+.board-cell.odd-cell {
+     /* Define a imagem de fundo para células ímpares. */
+    background-image: url('https://i.pinimg.com/736x/5d/f3/71/5df371e62a57e6a0e19cfe7f9eb8da6e.jpg');
+}
+
+/* Estilo para células pares do tabuleiro */
+.board-cell.even-cell {
+      /* Define a imagem de fundo para células pares. */
+    background-image: url('https://img.freepik.com/vetores-gratis/borda-de-floco-de-neve-de-aquarela_23-2149278081.jpg');
+}
+
+/* Para as casas de pergunta, mantemos o estilo da borda. */
+.board-cell.question-cell {
+    border-color: #1232A6;
+}
+
+/* Ajuste para garantir que o nome do jogador não seja cortado.*/
+#current-player-name {
+    width: auto; /* Permite que o elemento se ajuste ao conteúdo. */
+    max-width: 100%; /* Garante que não ultrapasse a largura do contêiner pai. */
+    font-size: 20px; /* Reduz o tamanho da fonte (se necessário). */
+    padding: 0 10px; /* Adiciona um espaço nas laterais para não ficar colado. */
+    white-space: nowrap; /* Impede que o texto quebre para a próxima linha. */
+}
+
+/* Classe para as imagens dos jogadores.*/
+.player-image { 
+    position: absolute;  /* Posição absoluta para posicionar a imagem dentro da célula. */
+    width: 40px;  /* Define a largura da imagem. */
+    height: 40px;    /* Define a altura da imagem. */
+    object-fit: contain;   /* Ajusta a imagem para caber na área. */
+    transition: all 0.5s ease-in-out;  /* Adiciona uma transição suave para movimento. */
+}
+
+/* Posição da imagem do Jogador 1 (no canto inferior esquerdo) */
+.player1-image {
+    bottom: 5px; /* Adiciona uma transição suave para movimento. */
+    left: 5px;  /* Posição horizontal na parte esquerda. */
+}
+
+/* Posição da imagem do Jogador 2 (no canto inferior direito) */
+.player2-image {
+    bottom: 5px;   /* Posição vertical na parte inferior. */
+    right: 5px; /* Posição horizontal na parte direita. */
+}
+
+/* Define o contêiner da neve para cobrir toda a tela.
+  ("position: fixed` e `z-index: -1" - garantem que a neve fique no fundo,
+  atrás de todo o conteúdo do jogo).*/
+
+#snow-container {
+    position: fixed; /* Fixa a posição na tela. */
+    top: 0; /* Começa no topo. */
+    left: 0; /* Começa na esquerda. */
+    width: 100%; /* Ocupa 100% da largura. */
+    height: 100%; /* Ocupa 100% da altura. */
+    overflow: hidden; /* Garante que os flocos não apareçam fora da tela */
+    pointer-events: none; /* Permite que o usuário clique em elementos atrás da neve */
+    z-index: -1; /* Coloca a neve no fundo, atrás de outros elementos. */
+}
+
+/* Estilo para cada floco de neve */
+.snowflake {
+    position: absolute;    /* Posição absoluta para posicionar o floco. */
+    background-color: #fff; /* Cor do floco de neve. */
+    border-radius: 50%; /* Forma redonda */
+    opacity: 0.8;  /* Opacidade do floco. */
+    animation-name: fall; /* Nome da animação */
+    animation-timing-function: linear;  /* Animação com velocidade constante. */
+    animation-iteration-count: infinite; /* Repete a animação infinitamente */
+}
+
+/* Define a animação de queda dos flocos.
+  Ao aumentar o valor do 'translateY' garantimos que os flocos
+  caiam completamente para fora da tela, mesmo que comecem acima dela.*/
+
+@keyframes fall {
+    0% {  /* Posição inicial dos flocos de neve, onde o floco começa. */
+        transform: translateY(0); 
+    }
+    100% {  /* Posição final; garante que o floco caia 150% da altura da tela */
+        transform: translateY(150vh); 
+    }
+}
+
+/* Caixa de pergunta */
+#question-box {
+    margin-top: 20px; /* Adiciona uma margem superior. */
+    padding: 15px; 
+    background-color: #a1b6fc; 
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Texto da pergunta */
+#question-text {
+    font-weight: bold;
+}
+
+/* Botões de opção de resposta */
+.option-btn {
+    width: 100%; /* Define a largura como 100% do contêiner. */
+    margin: 5px 0; /* Adiciona uma margem vertical. */
+}
